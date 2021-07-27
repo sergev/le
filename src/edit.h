@@ -30,11 +30,21 @@
 #ifndef _XOPEN_SOURCE_EXTENDED
 # define _XOPEN_SOURCE_EXTENDED 1
 #endif
-#ifdef USE_NCURSES_H
-# include <ncurses.h>
-#else
+
+#if HAVE_NCURSESW_NCURSES_H
+# include <ncursesw/ncurses.h>
+#elif HAVE_NCURSESW_CURSES_H
+# include <ncursesw/curses.h>
+#elif HAVE_CURSES_H
 # include <curses.h>
+#elif HAVE_NCURSES_H
+# include <ncurses.h>
+#elif HAVE_NCURSES_NCURSES_H
+# include <ncurses/ncurses.h>
+#elif HAVE_NCURSES_CURSES_H
+# include <ncurses/curses.h>
 #endif
+
 #ifdef bool_redefined
 # undef bool
 #endif

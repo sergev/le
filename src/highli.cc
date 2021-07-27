@@ -16,6 +16,7 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#include <wchar.h>
 #include <config.h>
 
 #include "edit.h"
@@ -361,7 +362,8 @@ static void ReadSyntaxFile(const char *fn,FILE *f,syntax_hl **chain)
 	 break;
       }
       case('h'):
-	 fscanf(f,"%d",&hl_lines);
+	 if (fscanf(f,"%d",&hl_lines) < 0)
+	    /*ignore*/;
 	 if(hl_lines<1)
 	    hl_lines=1;
 	 fskip(f);

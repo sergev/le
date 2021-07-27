@@ -1,13 +1,7 @@
 set(CMAKE_CXX_FLAGS "-DHAVE_CONFIG_H -O2 -Wall -Wwrite-strings -Woverloaded-virtual -fno-exceptions -fno-rtti -fno-implement-inlines")
 
-find_package(Curses REQUIRED)
+include(FindNcursesw.cmake)
 
-include_directories(
-    .
-    ../lib
-    ${CMAKE_CURRENT_BINARY_DIR}
-    ${CURSES_INCLUDE_DIR}
-)
 add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/action-enum.h
     COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/make-action-enum.pl
@@ -83,10 +77,17 @@ add_executable(le
     regex.c
     wcwidth.c
     wcwidth1.c
+    ../lib/localcharset.c
     action-enum.h
     action-name-func.h
     keymap-default.h
     mainmenu-default.h
+)
+target_include_directories(le PUBLIC
+    .
+    ../lib
+    ${CMAKE_CURRENT_BINARY_DIR}
+    ${CURSES_INCLUDE_DIRS}
 )
 target_link_libraries(le ${CURSES_LIBRARIES})
 install(TARGETS le DESTINATION bin)
