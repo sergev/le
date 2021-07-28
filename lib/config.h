@@ -45,3 +45,6 @@
 
 /* Define to 1 if you have the `strcoll' function and it is properly defined. */
 #define HAVE_STRCOLL 1
+
+/* Define if you have <langinfo.h> and nl_langinfo(CODESET). */
+#define HAVE_LANGINFO_CODESET 1
