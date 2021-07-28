@@ -1,4 +1,6 @@
-set(CMAKE_CXX_FLAGS "-DHAVE_CONFIG_H -O2 -Wall -Wwrite-strings -Woverloaded-virtual -fno-exceptions -fno-rtti -fno-implement-inlines")
+set(CMAKE_CXX_FLAGS "-O2 -Wall -Wwrite-strings -Woverloaded-virtual -fno-exceptions -fno-rtti -fno-implement-inlines")
+
+add_definitions(-DPKGDATADIR="${CMAKE_INSTALL_PREFIX}/share/le")
 
 include(FindNcursesw.cmake)
 

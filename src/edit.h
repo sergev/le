@@ -62,7 +62,6 @@ typedef long            num;
 
 enum { NO_POS=-1L };
 
-#include <configmake.h>
 #include "textpoin.h"
 #include "color.h"
 #include "window.h"
