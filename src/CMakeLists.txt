@@ -1,4 +1,4 @@
-set(CMAKE_CXX_FLAGS "-O2 -Wall -Wwrite-strings -Woverloaded-virtual -fno-exceptions -fno-rtti -fno-implement-inlines")
+set(CMAKE_CXX_FLAGS "-O2 -Wall -Wwrite-strings -Woverloaded-virtual -Wno-invalid-source-encoding -fno-exceptions -fno-rtti -fno-implement-inlines")
 
 add_definitions(-DPKGDATADIR="${CMAKE_INSTALL_PREFIX}/share/le")
 

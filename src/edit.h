@@ -24,7 +24,7 @@
 #include <errno.h>
 
 #if !defined(bool)
-# define bool LE_CURSES_BOOL_TYPE
+# define bool char
 # define bool_redefined 1
 #endif
 #ifndef _XOPEN_SOURCE_EXTENDED
