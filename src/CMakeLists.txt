@@ -34,6 +34,8 @@ add_custom_command(
     DEPENDS make-mainmenu.pl ../misc/mainmenu-default
 )
 
+include(make-config.cmake)
+
 add_executable(le
     about.cc
     block.cc
@@ -80,7 +82,7 @@ add_executable(le
     regex.c
     wcwidth.c
     wcwidth1.c
-    ../lib/localcharset.c
+    localcharset.c
     action-enum.h
     action-name-func.h
     keymap-default.h
